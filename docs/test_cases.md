@@ -38,24 +38,34 @@ Report date for all aging: 2025-12-31.
 
 ## Scenario tests (follow one document through the flow)
 
-TC-30. Credit block stays out of delivery and billing
+### TC-30. Credit block stays out of delivery and billing
+
 Steps: filter the order detail page to sales order 0001000006.
+
 Expected: credit status B, status Credit Block on every item, no delivery, no invoice, days blocked 362. Customer is Riverbend Community Clinic (risk class HIGH).
 
-TC-31. Cancelled invoice is excluded from revenue
+### TC-31. Cancelled invoice is excluded from revenue
+
 Steps: look up sales order 0001000151 in VBRK/VBRP and in the report.
+
 Expected: three billing documents. 0090000143 (F2, 2025-04-01, cancelled, FKSTO = X), 0090000144 (S1 cancelling 0090000143) and 0090000145 (the re-bill F2). Revenue for the order is counted once, from 0090000145. The report shows 0090000145 as the invoice.
 
-TC-32. Partial confirmation creates a backorder but the confirmed part still flows
+### TC-32. Partial confirmation creates a backorder but the confirmed part still flows
+
 Steps: open sales order 0001000013, item 000020.
+
 Expected: requested 8, confirmed 3, backorder qty 5. The 3 confirmed units were delivered and billed, so the item status is Billed and the backorder qty still shows 5.
 
-TC-33. Billing block holds an item in Delivered Not Billed
+### TC-33. Billing block holds an item in Delivered Not Billed
+
 Steps: filter the delivered-not-billed list to billing block 02.
+
 Expected: five orders (0001000566, 0001000576, 0001000577, 0001000621, 0001000641), all goods-issued and none invoiced. All four orders in the 8+ day bucket have this block, which is the finding to raise with the Billing team. (A sixth order, 0001000645, has the block but has not shipped yet, so it does not appear.)
 
-TC-34. Rejected items are left out of value and fill rate
+### TC-34. Rejected items are left out of value and fill rate
+
 Steps: pick any item with ABGRU = 02.
+
 Expected: status Rejected, not counted in backorder qty, not in fill rate, not in VBAK-NETWR for the order.
 
 ## Power BI checks
