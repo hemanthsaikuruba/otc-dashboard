@@ -33,6 +33,8 @@ docs/requirements.md      Business requirements, user stories, KPI definitions
 docs/test_cases.md        Test cases with expected results
 docs/powerbi_build_guide.md  Data model, DAX measures and page layout
 docs/portfolio_writeup.md Resume bullets, LinkedIn post and interview walkthrough
+OTC_Dashboard.pbix        Power BI report (5 pages, Order Detail is a drill-through)
+screenshots/              One image per report page
 ```
 
 ## How the data is modeled
@@ -50,7 +52,15 @@ The data includes the cases that make SD reporting hard in practice: partial con
 
 ## Screenshots
 
-(Add screenshots of each report page here.)
+![Executive summary](screenshots/1-executive-summary.png)
+
+![Order pipeline and credit](screenshots/2-order-pipeline-credit.png)
+
+![Delivery and backorders](screenshots/3-delivery-backorders.png)
+
+![Billing](screenshots/4-billing.png)
+
+![Order detail drill-through](screenshots/5-order-detail.png)
 
 ## Tools
 
