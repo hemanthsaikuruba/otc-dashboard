@@ -57,8 +57,8 @@ CREATE TABLE otc.VBAK (
     WAERK               VARCHAR(5)    NOT NULL,
     CMGST               CHAR(1)       NULL,       -- credit status: A passed, B blocked, D released
     CREDIT_RELEASE_DATE DATE          NULL,
-    LIFSK               VARCHAR(2)    NULL,       -- delivery block
-    FAKSK               VARCHAR(2)    NULL        -- billing block
+    LIFSK               VARCHAR(10)    NULL,       -- delivery block
+    FAKSK               VARCHAR(10)    NULL        -- billing block
 );
 
 -- Sales order item

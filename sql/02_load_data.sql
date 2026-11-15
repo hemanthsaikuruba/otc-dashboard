@@ -5,12 +5,14 @@
 
 USE OTC_Portfolio;
 GO
+-- Row terminator 0x0d0a works when the repo was cloned with Git on Windows (CRLF line endings).
+-- If you downloaded the ZIP from GitHub and the load fails, change it to 0x0a.
 DECLARE @path NVARCHAR(400) = N'C:\otc-dashboard\data\';
 DECLARE @sql  NVARCHAR(MAX) = N'';
 
 -- Parents first so the foreign keys are satisfied
 SELECT @sql += N'BULK INSERT otc.' + t + N' FROM ''' + @path + t + N'.csv'' '
-            + N'WITH (FORMAT = ''CSV'', FIRSTROW = 2, FIELDTERMINATOR = '','', ROWTERMINATOR = ''0x0a'', CODEPAGE = ''65001'');' + CHAR(10)
+            + N'WITH (FORMAT = ''CSV'', FIRSTROW = 2, FIELDTERMINATOR = '','', ROWTERMINATOR = ''0x0d0a'', CODEPAGE = ''65001'');' + CHAR(10)
 FROM (VALUES (1,'KNA1'),(2,'CUSTOMER_CREDIT'),(3,'MARA'),(4,'VBAK'),(5,'VBAP'),
              (6,'VBEP'),(7,'LIKP'),(8,'LIPS'),(9,'VBRK'),(10,'VBRP')) v(seq, t)
 ORDER BY seq;
