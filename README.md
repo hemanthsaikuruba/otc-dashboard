@@ -64,4 +64,4 @@ The data includes the cases that make SD reporting hard in practice: partial con
 
 ## Tools
 
-SAP SD data structures, SQL Server (T-SQL), Power BI (DAX), Python (pandas) for test data and validation.
+SAP SD data structures, SQL Server (T-SQL), Power BI (DAX),and a cross-check script for test data and validation.
